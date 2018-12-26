@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>大数据人工智能深度学习实战应用技术：色情识别核心技术 - Life</title>
+		<meta name="Keywords" content="关键词,关键词">
+		<meta name="description" content="">
+		
+		<style type="text/css">
+			*{margin:0;padding:0;}
+			body{font-size:12px;font-family:"微软雅黑";color:#666;}
+			img{border:0;}
+
+			/*top start*/
+			.top{width:100%;height:59px;background:#000000;}
+			.top .t-header{width:90%;height:59px;margin: 0 auto;}
+			.top .t-header .t-logo{float:left;margin-top:6px;}
+			.top .t-header .t-desc{float:right;line-height:59px;font-size:18px;color:#FFFFFF;}
+			/*end top*/
+
+			/*cotent start*/
+			.content{width:100%;height:315px;background:url("images/banner(1).png");background-size:cover;padding-top:30px;}
+			.content .c-box{width:980px;height:285px;margin:0 auto;}
+			.content .c-box .c-result .c-title{text-align:center;line-height:150px;font-size:30px;font-weight:300;}
+			.content .c-box .c-result .c-desc{font-size:50px;text-align:center;color:red;}
+			.content .c-box .c-view{float:left;position:relative;overflow:hidden;}
+			.content .c-box .c-view .c-scan{width:100%;height:100%;background:url("images/intro.png");position:absolute;background-size:cover;}
+			.content .c-box .c-view .c-img{border-radius:15px;}
+			.content .c-box .c-result{width:453px;height:285px;background:#FFFFFF;float:right;border-radius:15px;}
+			/*end content*/
+
+
+		
+		</style>
+			
+	</head>
+<body>
+
+	<!--top start-->
+	<div class="top">
+		<div class="t-header">
+			<div class="t-logo">
+				<a href="#">
+					<img src="images/logo.png" alt="ITSTAR" width="200" height="50" />
+				</a>
+			</div>
+			<div class="t-desc">色情识别-深度学习技术实战应用</div>
+		</div>
+	</div>
+	<!--end top-->
+
+	<!--content start-->
+	<div class="content">
+		<div class="c-box">
+			<div class="c-view">
+				<img src="images/1.jpg" class="c-img" alt="示例图" width="453" height="282" />
+				<div class="c-scan"></div>
+			</div>
+			<div class="c-result">
+				<h2 class="c-title">百度大脑只能鉴别结果：</h2>
+				<p class="c-desc">正常</p>
+			</div>
+		</div>
+	</div>
+	<!--end content-->
+
+
+<!--引入jQuery的官方类库-->
+<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+
+	jQuery(function(){
+		
+		// 初始化扫一扫
+		scan();
+		
+		// 图像审核
+		query();
+
+	});
+
+	// 请求图像审核识别
+	function query(){
+		var src = $(".c-img").attr("src");
+		$.ajax({
+			type:"post",
+			url:"ImageCensorData.jsp",
+			data:{"path":src},
+			success:function(data){
+				var result = $.parseJSON(data);
+				var imgInfo = result.conclusion;
+				$(".c-desc").text(imgInfo);
+			}
+		});
+	}
+
+
+	// 图像扫描
+	function scan(){
+		
+		var box = $(".c-view");
+		$(".c-scan").css({"bottom":box.height()}).animate({bottom:0},2000,function(){
+			$(this).css({"bottom":box.height()});
+		});
+
+	}
+
+
+
+</script>
+
+
+</body>
+</html>

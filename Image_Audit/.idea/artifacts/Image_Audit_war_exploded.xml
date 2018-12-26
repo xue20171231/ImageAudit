@@ -1,0 +1,17 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Image_Audit:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/Image_Audit_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Image_Audit" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: com.baidu.aip:java-sdk:3.1.0" />
+          <element id="library" level="project" name="Maven: org.json:json:20160810" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="Image_Audit/web/Web" />
+    </root>
+  </artifact>
+</component>
